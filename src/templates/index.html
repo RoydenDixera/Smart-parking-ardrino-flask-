@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Slot Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        header, footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex; /* Align items horizontally */
+            justify-content: center;
+            gap: 50px;
+        }
+
+        header li {
+            margin-right: 20px;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            margin: 20px auto;
+            width: 80%;
+            overflow-x: auto; /* Horizontal scroll for small screens */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2rem; /* Base font size */
+        }
+        td {
+            font-weight: bold;
+        }
+        .vacant {
+            background-color: #98fb98; /* Green */
+        }
+        .occupied {
+            background-color: #ff6347; /* Red */
+        }
+        .vacant, .occupied {
+            font-size: 2rem; /* Larger font size for emojis */
+        }
+        footer {
+            margin-top: auto;
+        }
+
+        /* Media query for small screens */
+        @media screen and (max-width: 600px) {
+            th, td {
+                font-size: 1rem; /* Decrease font size for small screens */
+                padding: 8px; /* Decrease padding for small screens */
+            }
+            
+            .vacant, .occupied {
+                font-size: 1.6rem; /* Larger font size for emojis on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SFIT Parking</h1>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5000/">Home</a></li>
+                <li><a href="http://127.0.0.1:5000/about">About</a></li>
+                <li><a href="http://127.0.0.1:5000/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Slot</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Slot 1</td>
+                    <td class="vacant">🚫</td>
+                </tr>
+                <tr>
+                    <td>Slot 2</td>
+                    <td class="occupied">🚘</td>
+                </tr>
+                <tr>
+                    <td>Slot 3</td>
+                    <td class="vacant">🚫</td>
+                </tr>
+                <tr>
+                    <td>Slot 4</td>
+                    <td class="occupied">🚘</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 SFIT Parking App</p>
+    </footer>
+</body>
+</html>
