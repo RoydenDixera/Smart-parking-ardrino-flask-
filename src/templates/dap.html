@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Data</title>
+    <script>
+        function fetchData() {
+            fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+                // Clear existing list
+                document.getElementById('data-list').innerHTML = '';
+                // Append new data to the list
+                data.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    document.getElementById('data-list').appendChild(li);
+                });
+            });
+        }
+
+        // Fetch data initially and then every 1 second
+        fetchData();
+        setInterval(fetchData, 1000);
+    </script>
+</head>
+<body>
+    <h1>Serial Data</h1>
+    <ul id="data-list">
+        <!-- Data will be dynamically inserted here -->
+    </ul>
+</body>
+</html>

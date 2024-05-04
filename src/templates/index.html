@@ -83,6 +83,47 @@
             }
         }
     </style>
+
+    <script>
+        function fetchData() {
+            fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+                // Update table cells with fetched data
+                data.forEach((item, index) => {
+                    const cell = document.getElementById(`status-${index + 1}`);
+                    if (cell) {
+                        cell.textContent = item;
+                    }
+                });
+            });
+        }
+
+        // Fetch data initially and then every 1 second
+        fetchData();
+        setInterval(fetchData, 1000);
+    </script>
+
+        <!-- <script>
+            function fetchData() {
+                fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing list
+                    document.getElementById('data-list').innerHTML = '';
+                    // Append new data to the list
+                    data.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        document.getElementById('data-list').appendChild(li);
+                    });
+                });
+            }
+    
+            // Fetch data initially and then every 1 second
+            fetchData();
+            setInterval(fetchData, 1000);
+        </script> -->
 </head>
 <body>
     <header>
@@ -96,7 +137,7 @@
         </nav>
     </header>
     <main>
-        <table>
+        <table id="parking-table">
             <thead>
                 <tr>
                     <th>Slot</th>
@@ -106,19 +147,15 @@
             <tbody>
                 <tr>
                     <td>Slot 1</td>
-                    <td class="vacant">🚫</td>
+                    <td id="status-1"></td>
                 </tr>
                 <tr>
                     <td>Slot 2</td>
-                    <td class="occupied">🚘</td>
+                    <td id="status-2"></td>
                 </tr>
                 <tr>
                     <td>Slot 3</td>
-                    <td class="vacant">🚫</td>
-                </tr>
-                <tr>
-                    <td>Slot 4</td>
-                    <td class="occupied">🚘</td>
+                    <td id="status-3"></td>
                 </tr>
             </tbody>
         </table>
